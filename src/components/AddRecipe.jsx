@@ -15,6 +15,7 @@ class AddRecipe extends React.Component {
     this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
     this.handleRecipeChange = this.handleRecipeChange.bind(this);
     this.handlePhotoChange = this.handlePhotoChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
 
   }
 
@@ -34,20 +35,22 @@ class AddRecipe extends React.Component {
 
 
   onSubmit() {
-    allRecipes.push(self.state);
-    //lATER use ajax call for a post req
+    this.props.handleInputChange();
+    alert('A recipe was submitted: ' + this.state.name, "Keep adding those recipes!");
+    event.preventDefault();
   }
 
 
   render() {
     return (
-      <form className='form'>
+      <form className='form' action="/addrecipe" method="post" onSubmit={this.onSubmit}>
         <div className="form-group row">
           <label className="col-sm-2 col-form-label">Recipe Name: </label>
           <div className="col-sm-10">
             <input
               className='form-control'
               type="text"
+              name="name"
               value={this.state.name}
               onChange={this.handleNameChange}
             />
@@ -60,6 +63,7 @@ class AddRecipe extends React.Component {
             <input
               className="form-control"
               type="text"
+              name="description"
               value={this.state.description}
               onChange={this.handleDescriptionChange}
             />
@@ -72,6 +76,7 @@ class AddRecipe extends React.Component {
             <input
               className="form-control"
               type="text"
+              name="recipeUrl"
               value={this.state.recipeUrl}
               onChange={this.handleRecipeChange}
             />
@@ -79,18 +84,19 @@ class AddRecipe extends React.Component {
         </div>
 
         <div className="form-group row">
-          <label className="col-sm-2 col-form-label">Recipe Url: </label>
+          <label className="col-sm-2 col-form-label">Photo Url: </label>
           <div className="col-sm-10">
             <input
               className="form-control"
               type="text"
+              name="photoUrl"
               value={this.state.photoUrl}
               onChange={this.handlePhotoChange}
             />
           </div>
         </div>
 
-        <button className="btn text-right" type="submit" onClick={this.onSubmit} >Submit</button>
+        <button className="btn text-right" type="submit">Submit</button>
       </form>
     )
   }
