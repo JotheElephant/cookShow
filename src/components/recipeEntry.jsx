@@ -14,14 +14,6 @@ class RecipeEntry extends React.Component {
 
   handleRemoveClick() {
     this.props.handleInputChange();
-    // fetch('/remove', {
-    //   method: 'post',
-    //   body: JSON.stringify({name: this.state.name})
-    // }).then(function(data) {
-    //   return data.json();
-    // }).catch(function(err) {
-    //   console.log(err);
-    // })
     fetch("/remove",
       {
         headers: {
