@@ -27,7 +27,6 @@ class App extends React.Component {
     }).then(function(data) {
       return data.json();
     }).then(function(body) {
-      //console.log(body);
       this.setState({recipes: body});
     }.bind(this)).catch(function(err) {
       console.log(err);
