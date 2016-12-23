@@ -9,34 +9,39 @@ class AddRecipe extends React.Component {
       name: '',
       description: '',
       recipeUrl: '',
-      photoUrl: ''
+      photoUrl: '',
+      // tag: 'Breakfast'
     }
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
     this.handleRecipeChange = this.handleRecipeChange.bind(this);
     this.handlePhotoChange = this.handlePhotoChange.bind(this);
+    // this.handleTagChange = this.handleTagChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
   }
 
   handleNameChange(e) {
-    this.setState({ name: e.target.value })
+    this.setState({ name: e.target.value });
   }
   handleDescriptionChange(e) {
-    this.setState({ description: e.target.value })
+    this.setState({ description: e.target.value });
   }
   handleRecipeChange(e) {
-    this.setState({ recipeUrl: e.target.value })
+    this.setState({ recipeUrl: e.target.value });
   }
   handlePhotoChange(e) {
-    this.setState({ photoUrl: e.target.value })
+    this.setState({ photoUrl: e.target.value });
   }
+  // handleTagChange(e) {
+  //   this.setState({ tag: e.target.value })
+  // }
 
 
 
   onSubmit() {
     this.props.handleInputChange();
-    alert('A recipe was submitted: ' + this.state.name, "Keep adding those recipes!");
+    alert('A recipe was submitted: ' + this.state.name + "Keep adding those recipes!");
     event.preventDefault();
   }
 
@@ -103,3 +108,16 @@ class AddRecipe extends React.Component {
 }
 
 export default AddRecipe;
+
+        // <div className="form-group row">
+        //   <label className="col-sm-2 col-form-label">Tags: </label>
+        //   <div className="col-sm-10">
+        //     <select value={this.state.tag} onChange={this.handleTagChange}>
+        //       <option value="Breakfast">Breakfast</option>
+        //       <option value="Lunch">Lunch</option>
+        //       <option value="Dinner">Dinner</option>
+        //       <option value="Dessert">Dessert</option>
+        //     </select>
+        //     {this.state.tag}
+        //   </div>
+        // </div>

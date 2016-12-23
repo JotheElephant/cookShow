@@ -17,7 +17,7 @@ app.use('/', express.static('public'));
 app.get('/recipes', function(req, res) {
   Recipe.find({}).exec(function(err, recipes) {
     res.status(200).send(recipes);
-  })
+  });
 });
 
 //recipe is added to the list
@@ -26,12 +26,14 @@ app.post('/addrecipe', function(req, res) {
     name: req.body.name,
     description: req.body.description,
     recipeUrl: req.body.recipeUrl,
-    photoUrl: req.body.photoUrl
+    photoUrl: req.body.photoUrl,
+    tag: req.body.tag
   });
+  console.log(req.body.tag);
   newRecipe.save(function(err, updatedRecipe) {
     res.redirect('/');
   });
-})
+});
 
 //removes recipe from list
 app.post('/remove', function(req, res) {
@@ -40,11 +42,11 @@ app.post('/remove', function(req, res) {
     console.log('Disappeared!');
       // if no error, your model is removed
   });
-})
+});
 
 app.get('*', function (request, response){
   response.sendFile(path.resolve(__dirname, 'public', 'index.html'))
-})
+});
 
 app.listen(process.env.PORT || 8000);
 

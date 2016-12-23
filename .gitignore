@@ -3,3 +3,9 @@
 
 ## NPM ##
 node_modules/
+
+## webpack bundle ##
+public/bundle.js
+
+##database##
+data/db

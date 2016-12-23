@@ -7,7 +7,8 @@ class RecipeEntry extends React.Component {
       name: this.props.recipe.name,
       description: this.props.recipe.description,
       recipeUrl: this.props.recipe.recipeUrl,
-      photoUrl: this.props.recipe.recipeUrl
+      photoUrl: this.props.recipe.recipeUrl,
+      //tag: this.props.tag
     }
     this.handleRemoveClick = this.handleRemoveClick.bind(this);
   }
@@ -37,7 +38,8 @@ class RecipeEntry extends React.Component {
         </div>
         <div className="recipe-body col-md-8">
           <h4 className="recipe-name">{this.props.recipe.name}</h4>
-          <div className="recipe-description"><strong>Description: </strong>{this.props.recipe.description}</div>
+          <div className="recipe-description"><strong>Description: </strong>{this.props.recipe.description}
+          </div>
           <div className="recipe-recipe">
             <a href={this.props.recipe.recipeUrl} className="btn btn-info">Go to Recipe</a>
           </div>
@@ -53,20 +55,7 @@ class RecipeEntry extends React.Component {
 
 export default RecipeEntry;
 
+  //         <div className="recipe-description"><strong>Tag: </strong>{this.props.recipe.tag}
+  //         </div>
 
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     isDone : false
-  //   }
-  // }
-
-  // handleClick(entry) {
-  //   this.setState({ isDone : !this.state.isDone })
-  // }
-
-  // render() {
-  //   return (
-  //     <li className={this.state.isDone ? "item" : ""} onClick={() => this.handleClick(this.props.entry)}>{this.props.entry}</li>
-  //   )
-  // }
+//sldifjasldkf
